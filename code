@@ -1,0 +1,54 @@
+public class ModularCalculator {
+
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    public static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public static double divide(int a, int b) {
+        try {
+            return (double) a / b;
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero!");
+            return 0;
+        }
+    }
+
+    public static void printResult(String operation, double result) {
+        System.out.println(operation + " result: " + result);
+    }
+
+    public static void modifyValue(int x) {
+        x = x + 10;
+        System.out.println("Inside method, x = " + x);
+    }
+
+    public static void main(String[] args) {
+        printResult("Addition (int)", add(5, 3));
+        printResult("Addition (double)", add(5.5, 3.2));
+        printResult("Addition (3 ints)", add(1, 2, 3));
+        printResult("Subtraction", subtract(10, 4));
+        printResult("Multiplication", multiply(6, 7));
+        printResult("Division", divide(10, 0)); // triggers exception
+
+        int num = 20;
+        System.out.println("Before method call, num = " + num);
+        modifyValue(num);
+        System.out.println("After method call, num = " + num);
+    }
+}
